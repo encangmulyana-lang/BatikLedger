@@ -1,0 +1,15 @@
+{
+  "name": "BATIK LEDGER #5575",
+  "description": "Batik Ledger #5575 \u2014 motif Mega Mendung, kartu batik di BNB Chain.",
+  "image": "https://batikledger.vercel.app/images/mega-mendung.svg",
+  "attributes": [
+    {
+      "trait_type": "Motif",
+      "value": "Mega Mendung"
+    },
+    {
+      "trait_type": "Tier",
+      "value": "Mega Mendung"
+    }
+  ]
+}
