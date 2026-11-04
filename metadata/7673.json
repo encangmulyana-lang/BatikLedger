@@ -1,0 +1,15 @@
+{
+  "name": "BATIK LEDGER #7673",
+  "description": "Batik Ledger #7673 \u2014 motif Kawung, kartu batik di BNB Chain.",
+  "image": "https://batikledger.vercel.app/images/kawung.svg",
+  "attributes": [
+    {
+      "trait_type": "Motif",
+      "value": "Kawung"
+    },
+    {
+      "trait_type": "Tier",
+      "value": "Kawung"
+    }
+  ]
+}

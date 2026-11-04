@@ -1,0 +1,15 @@
+{
+  "name": "BATIK LEDGER #8592",
+  "description": "Batik Ledger #8592 \u2014 motif Cap, kartu batik di BNB Chain.",
+  "image": "https://batikledger.vercel.app/images/cap.svg",
+  "attributes": [
+    {
+      "trait_type": "Motif",
+      "value": "Cap"
+    },
+    {
+      "trait_type": "Tier",
+      "value": "Cap"
+    }
+  ]
+}
