@@ -1,0 +1,15 @@
+{
+  "name": "BATIK LEDGER #4491",
+  "description": "Batik Ledger #4491 \u2014 motif Parang, kartu batik di BNB Chain.",
+  "image": "https://batikledger.vercel.app/images/parang.svg",
+  "attributes": [
+    {
+      "trait_type": "Motif",
+      "value": "Parang"
+    },
+    {
+      "trait_type": "Tier",
+      "value": "Parang"
+    }
+  ]
+}
