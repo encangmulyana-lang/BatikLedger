@@ -114,12 +114,12 @@ footer { text-align: center; padding: 22px 12px; border-top: 1px solid #5a3a1a; 
 <section id="mint" style="text-align:center">
   <h2>Canting Dimulai</h2>
   <p class="muted">Mint utama lewat tombol wallet di atas (buka situs di dalam browser aplikasi wallet di HP). Alternatif lewat agen Binance (baw) di chat — kirim prompt ini ke Muse:</p>
-  <pre id="agentPrompt">Tolong mint Batik Ledger: kontrak 0xKONTRAK, mint(1), bayar 0,0003 BNB, dari wallet baw saya.</pre>
+  <pre id="agentPrompt">Tolong mint Batik Ledger: kontrak 0xf8f342Dd84ad1443c80C2D5E3bBD903700aE11EF, mint(1), bayar 0,0003 BNB, dari wallet baw saya.</pre>
   <div style="text-align:left"><p><b>Detail koleksi:</b></p>
   <pre>Nama: BatikLedger (BATIK), ERC-721 di BNB Smart Chain (56)
 Suplai: 8.888 · Harga flat: 0,0003 BNB · Max 10/tx
 Tier: Cap 3.555 / Kawung 2.666 / Mega Mendung 1.777 / Parang 622 / Sidomukti 268
-Kontrak: <span id="contractAddr">belum di-deploy</span></pre></div>
+Kontrak: <span id="contractAddr">0xf8f342Dd84ad1443c80C2D5E3bBD903700aE11EF</span></pre></div>
 </section>
 <footer>© BATIK LEDGER · Konsep orisinal bertema batik, terinspirasi strukturnya dari situs referensi (bukan salinan) · BNB Smart Chain</footer>
 <script>
@@ -136,7 +136,7 @@ card.addEventListener('click', () => { card.classList.toggle('flipped'); card.st
 </script>
 <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
 <script>
-const CONTRACT = "0xKONTRAK";
+const CONTRACT = "0xf8f342Dd84ad1443c80C2D5E3bBD903700aE11EF";
 const ABI = ["function mint(uint256) payable", "function totalMinted() view returns (uint256)", "function currentPrice() view returns (uint256)"];
 let provider, signer, userAddr;
 async function connect() {
