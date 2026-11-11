@@ -139,6 +139,20 @@ card.addEventListener('click', () => { card.classList.toggle('flipped'); card.st
 const CONTRACT = "0xf8f342Dd84ad1443c80C2D5E3bBD903700aE11EF";
 const ABI = ["function mint(uint256) payable", "function totalMinted() view returns (uint256)", "function currentPrice() view returns (uint256)"];
 let provider, signer, userAddr;
+const RPCS=["https://bsc-dataseed.bnbchain.org","https://bsc-dataseed1.binance.org","https://rpc-bsc.48.club"];
+const TX_WALLET_FEE="Wallet Anda tidak dapat menyiapkan transaksi ini (jawaban kosong dari browser). Buka situs ini di dalam browser aplikasi wallet (MetaMask / Trust Wallet / Binance Wallet) lalu coba lagi.";
+async function rpcGasPrice(){
+  for(const url of RPCS){
+    try{ const r=await fetch(url,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({jsonrpc:"2.0",id:1,method:"eth_gasPrice",params:[]})});
+      const j=await r.json(); if(j.result) return BigInt(j.result); }catch(e){}
+  } return 1000000000n;
+}
+function txErrMsg(e){
+  const m=(e&&e.message)||String(e||"");
+  if(m.indexOf("invalid BigNumberish")>=0||m.indexOf("value=null")>=0){ return TX_WALLET_FEE; }
+  return (e&&e.reason)||m;
+}
+
 async function connect() {
   if (!window.ethereum) { document.getElementById('walletState').textContent = 'No browser wallet detected — buka situs ini di dalam browser aplikasi wallet (mis. Trust Wallet / Binance Wallet), atau pakai prompt agen di bawah.'; return; }
   provider = new ethers.BrowserProvider(window.ethereum);
@@ -160,10 +174,11 @@ document.getElementById('mintBtn').onclick = async () => {
   try {
     const c = new ethers.Contract(CONTRACT, ABI, signer);
     const price = await c.currentPrice();
-    const tx = await c.mint(qty, { value: price * BigInt(qty) });
+    const gp=await rpcGasPrice();
+    const tx = await c.mint(qty, { value: price * BigInt(qty), gasPrice: gp, gasLimit: 300000n });
     alert('Transaksi dikirim: ' + tx.hash + '. Tunggu konfirmasi di wallet.');
     await tx.wait(); alert('Mint berhasil!'); refresh();
-  } catch (e) { alert('Mint gagal: ' + (e.reason || e.message)); }
+  } catch (e) { alert('Mint gagal: ' + txErrMsg(e)); }
 };
 </script>
 </body></html>
